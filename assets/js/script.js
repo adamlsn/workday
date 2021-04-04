@@ -45,7 +45,7 @@ $(document).ready(function() {
                 $(this).addClass("future")
                 .removeClass("past")
                 .removeClass("present");
-                console.log("textarea " + textareaId + " is in the FUTURE")
+                console.log("textarea " + textareaId + " is in the FUTURE");
             }
         });
     };
