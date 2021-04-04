@@ -20,4 +20,18 @@ $(document).ready(function() {
     $("#3p .description").val(localStorage.getItem("3p"));
     $("#4p .description").val(localStorage.getItem("4p"));
     $("#5p .description").val(localStorage.getItem("5p"));
+
+    //function to change colors based upon time
+    function setColors() {
+        //getting current time
+        let currentTime = moment().hours();
+        console.log("Current time is: " + currentTime);
+
+        $("textarea").each(function() {
+            let textareaId = $(this).attr("id");
+            console.log('"id" tag for textarea number ' + textareaId + " works");
+        });
+    };
+
+    setColors();
 });
