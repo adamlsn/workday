@@ -25,13 +25,31 @@ $(document).ready(function() {
     function setColors() {
         //getting current time
         let currentTime = moment().hours();
-        console.log("Current time is: " + currentTime);
+        console.log("Current time (in 24hr clock) is: " + currentTime + ":00");
 
         $("textarea").each(function() {
             let textareaId = $(this).attr("id");
-            console.log('"id" tag for textarea number ' + textareaId + " works");
+            // console.log('"id" tag for textarea number: ' + textareaId + "");
+
+            //checking time against "id" to set a class
+            if(textareaId < currentTime){
+                $(this).addClass("past");
+                console.log("textarea " + textareaId + " is in the PAST");
+            }
+            else if(textareaId == currentTime){
+                $(this).addClass("present")
+                .removeClass("past");
+                console.log("textarea " + textareaId + " is in the PRESENT");
+            }
+            else{
+                $(this).addClass("future")
+                .removeClass("past")
+                .removeClass("present");
+                console.log("textarea " + textareaId + " is in the FUTURE")
+            }
         });
     };
 
+    //calling function!
     setColors();
 });
